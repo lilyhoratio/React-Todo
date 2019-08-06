@@ -43,13 +43,29 @@ class App extends React.Component {
     this.setState({ todos: [...this.state.todos, newTodo] });
   };
 
+  toggleItem = id => {
+    console.log(id);
+    // if clicked, change "completed" to !completed
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        // if current state id === clicked on todo id
+        if (todo.id === id) {
+          return { ...todo, completed: !todo.completed };
+          // will error without else statement because maps over entire array and expects return for not clicked on todos
+        } else {
+          return todo;
+        }
+      })
+    });
+  };
+
   render() {
     console.log(this.state.todos);
     return (
-      <div>
+      <div className="todo-all">
         <h2>Lily's To Do List</h2>
         <TodoForm addTodo={this.addTodo} />
-        <TodoList todos={this.state.todos} />
+        <TodoList todos={this.state.todos} toggleItem={this.toggleItem} />
       </div>
     );
   }
