@@ -17,6 +17,7 @@ const Todo = props => {
       </div>
 
       <div className={`todo-icons${props.todo.completed ? "-completed" : ""}`}>
+        <FontAwesomeIcon icon="edit" id="task-icon" onClick={null} />
         <FontAwesomeIcon
           icon="check"
           id="task-icon"

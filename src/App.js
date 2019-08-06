@@ -9,10 +9,11 @@ import {
   faTasks,
   faTrash,
   faPlusSquare,
-  faCheck
+  faCheck,
+  faEdit
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faTasks, faTrash, faPlusSquare, faCheck);
+library.add(faTasks, faTrash, faPlusSquare, faCheck, faEdit);
 
 const todoData = [
   {
@@ -28,6 +29,16 @@ const todoData = [
   {
     task: "Submit my to do list",
     id: 1528817084359,
+    completed: false
+  },
+  {
+    task: "Style it",
+    id: 1528817084360,
+    completed: false
+  },
+  {
+    task: "Deploy to netlify",
+    id: 1528817084380,
     completed: false
   }
 ];
@@ -45,14 +56,17 @@ class App extends React.Component {
 
   addTodo = todoTask => {
     console.log(todoTask);
-    const newTodo = {
-      task: todoTask,
-      // name: todoTask //die
-      id: Date.now(),
-      completed: false
-    };
-    console.log(newTodo);
-    this.setState({ todos: [...this.state.todos, newTodo] });
+
+    if (todoTask !== "") {
+      const newTodo = {
+        task: todoTask,
+        // name: todoTask //die
+        id: Date.now(),
+        completed: false
+      };
+      console.log(newTodo);
+      this.setState({ todos: [...this.state.todos, newTodo] });
+    }
   };
 
   deleteItem = id => {

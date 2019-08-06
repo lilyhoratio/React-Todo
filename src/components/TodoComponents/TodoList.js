@@ -6,10 +6,11 @@ import Todo from "./Todo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const TodoList = props => {
-  // console.log(props);
+  console.log("PROPS TO DOS", props.todos);
   return (
     <div className="todo-list">
       <div className="todo-list-incomplete">
+        <h4>To-dos</h4>
         {props.todos.map(todo => {
           if (!todo.completed) {
             return (
@@ -26,7 +27,7 @@ const TodoList = props => {
       </div>
       <div className="todo-list-complete">
         <div className="todo-list-complete-header">
-          <h4>Completed Tasks</h4>
+          <h4>Completed</h4>
           <FontAwesomeIcon
             id="task-icon"
             icon="trash"

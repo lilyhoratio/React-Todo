@@ -31,7 +31,7 @@ export class TodoForm extends Component {
           type="text"
           name="todoTask"
           //   name="item"
-          placeholder="your to-do here"
+          placeholder="your to-do here ( ͡⚆ ͜ʖ ͡⚆)"
           value={this.state.todoTask}
           onChange={this.handleChanges}
         />
