@@ -20,6 +20,7 @@ export class TodoForm extends Component {
     e.preventDefault();
     console.log(this.state.todoTask);
     this.props.addTodo(this.state.todoTask);
+    this.setState({ todoTask: "" });
   };
 
   render() {

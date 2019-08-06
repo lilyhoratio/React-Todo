@@ -2,6 +2,13 @@ import React from "react";
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
 
+// font aesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faTasks } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faTasks);
+
 const todoData = [
   {
     task: "Make a to do list",
@@ -68,13 +75,18 @@ class App extends React.Component {
     console.log(this.state.todos);
     return (
       <div className="todo-all">
-        <h2>Lily's To Do List</h2>
-        <TodoForm addTodo={this.addTodo} />
-        <TodoList
-          todos={this.state.todos}
-          toggleItem={this.toggleItem}
-          clearCompleted={this.clearCompleted}
-        />
+        <div className="todo-header">
+          <h2>To-Do List</h2>
+          <FontAwesomeIcon id="task-icon" icon="tasks" />
+        </div>
+        <div className="todo-main">
+          <TodoForm addTodo={this.addTodo} />
+          <TodoList
+            todos={this.state.todos}
+            toggleItem={this.toggleItem}
+            clearCompleted={this.clearCompleted}
+          />
+        </div>
       </div>
     );
   }
