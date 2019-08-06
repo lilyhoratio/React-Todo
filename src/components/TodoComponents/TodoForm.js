@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export class TodoForm extends Component {
   constructor(props) {
@@ -30,11 +31,16 @@ export class TodoForm extends Component {
           type="text"
           name="todoTask"
           //   name="item"
-          placeholder="enter your to do item!"
+          placeholder="your to-do here"
           value={this.state.todoTask}
           onChange={this.handleChanges}
         />
-        <button>Add Item</button>
+        {/* <button>Add Item</button> */}
+        <FontAwesomeIcon
+          onClick={this.handleSubmit}
+          id="task-icon"
+          icon="plus-square"
+        />
       </form>
     );
   }

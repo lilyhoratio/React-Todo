@@ -3,9 +3,10 @@
 
 import React from "react";
 import Todo from "./Todo";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const TodoList = props => {
-  console.log(props);
+  // console.log(props);
   return (
     <div className="todo-list">
       <div className="todo-list-incomplete">
@@ -17,16 +18,21 @@ const TodoList = props => {
                 todo={todo}
                 toggleItem={props.toggleItem}
                 clearCompleted={props.clearCompleted}
+                deleteItem={props.deleteItem}
               />
             );
           }
         })}
       </div>
       <div className="todo-list-complete">
-        <p>Completed Tasks</p>
-        <button className="clear-btn" onClick={props.clearCompleted}>
-          Clear
-        </button>
+        <div className="todo-list-complete-header">
+          <h4>Completed Tasks</h4>
+          <FontAwesomeIcon
+            id="task-icon"
+            icon="trash"
+            onClick={props.clearCompleted}
+          />
+        </div>
         {props.todos.map(todo => {
           if (todo.completed) {
             return (
@@ -35,6 +41,7 @@ const TodoList = props => {
                 todo={todo}
                 toggleItem={props.toggleItem}
                 clearCompleted={props.clearCompleted}
+                deleteItem={props.deleteItem}
               />
             );
           }

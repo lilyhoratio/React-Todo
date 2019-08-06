@@ -2,12 +2,17 @@ import React from "react";
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
 
-// font aesome
+// font awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faTasks } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTasks,
+  faTrash,
+  faPlusSquare,
+  faCheck
+} from "@fortawesome/free-solid-svg-icons";
 
-library.add(faTasks);
+library.add(faTasks, faTrash, faPlusSquare, faCheck);
 
 const todoData = [
   {
@@ -50,9 +55,18 @@ class App extends React.Component {
     this.setState({ todos: [...this.state.todos, newTodo] });
   };
 
+  deleteItem = id => {
+    const filteredItems = this.state.todos.filter(todo => todo.id !== id);
+    console.log("delete id", filteredItems);
+
+    this.setState({
+      todos: filteredItems
+    });
+  };
+
   // if clicked, change "completed" to !completed
   toggleItem = id => {
-    console.log(id);
+    // console.log(id);
     this.setState({
       todos: this.state.todos.map(todo => {
         if (todo.id === id) {
@@ -76,7 +90,7 @@ class App extends React.Component {
     return (
       <div className="todo-all">
         <div className="todo-header">
-          <h2>To-Do List</h2>
+          <h2>__Dunderlist__</h2>
           <FontAwesomeIcon id="task-icon" icon="tasks" />
         </div>
         <div className="todo-main">
@@ -85,6 +99,7 @@ class App extends React.Component {
             todos={this.state.todos}
             toggleItem={this.toggleItem}
             clearCompleted={this.clearCompleted}
+            deleteItem={this.deleteItem}
           />
         </div>
       </div>

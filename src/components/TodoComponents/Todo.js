@@ -1,19 +1,33 @@
 import React from "react";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Todo = props => {
-  console.log("todo props", props);
+  // console.log("todo props", props.todo.completed);
+
   return (
+    // <div className="todo-container">
     <div
-      className={`todo-item${props.todo.completed ? "-completed" : ""}`}
-      onClick={() => props.toggleItem(props.todo.id)}
+      className={`todo-container${props.todo.completed ? "-completed" : ""}`}
     >
-      <FontAwesomeIcon
-        // icon={`${props.todo.completed} ? "check-circle" : "circle"`}
-        icon="fa-check-circle"
-      />
-      <p>{props.todo.task}</p>
+      <div
+        className="todo-text"
+        onClick={() => props.toggleItem(props.todo.id)}
+      >
+        <p>{props.todo.task}</p>
+      </div>
+
+      <div className={`todo-icons${props.todo.completed ? "-completed" : ""}`}>
+        <FontAwesomeIcon
+          icon="check"
+          id="task-icon"
+          onClick={() => props.toggleItem(props.todo.id)}
+        />
+        <FontAwesomeIcon
+          icon="trash"
+          id="task-icon"
+          onClick={() => props.deleteItem(props.todo.id)}
+        />
+      </div>
     </div>
   );
 };
