@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+$pop-color: #20a39e;
+$grey-color: #768189;
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+h4 {
+  margin: 5px 0;
+  font-size: 1.2rem;
+}
+
+#task-icon {
+  margin-left: 12px;
+  color: $pop-color;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.4;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.todo-all {
+  max-width: 800px;
+  margin: 0 auto;
+
+  .todo-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .todo-main {
+    width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    form {
+      input {
+        outline: none;
+        padding: 5px;
+        border: 0;
+        border-bottom: 2px solid $pop-color;
+        width: 300px;
+        font-family: "Roboto", sans-serif;
+        font-size: 1rem;
+        margin-bottom: 20px;
+        color: $grey-color;
+      }
+    }
+
+    .todo-list {
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      button {
+        width: 150px;
+      }
+
+      .todo-list-incomplete {
+        width: 400px;
+        margin-left: 20px;
+      }
+
+      .todo-list-complete {
+        width: 400px;
+        margin-left: 20px;
+
+        .todo-list-complete-header {
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+
+    //individual task
+
+    .todo-container,
+    .todo-container-completed {
+      color: $grey-color;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 5px;
+      border: 1px solid $grey-color;
+      padding: 0 10px;
+      margin: 20px 0;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        box-shadow: inset 0 0 2px $pop-color;
+        margin-left: 4px;
+      }
+    }
+
+    .todo-container-completed {
+      text-decoration: line-through;
+      color: #d8d8d8;
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid #d8d8d8;
+      align-items: center;
+      cursor: pointer;
+
+      #task-icon {
+        color: #d8d8d8;
+      }
+    }
+  }
+}
